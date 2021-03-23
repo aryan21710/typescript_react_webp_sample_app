@@ -1,14 +1,20 @@
-{ "compilerOptions": {
-  "outDir": "./public",
-  "noImplicitAny": true,
-  "module": "AMD",
-  "target": "es6",
-  "jsx": "react",
-  "allowJs": true,
-  "allowSyntheticDefaultImports": true,
-  "moduleResolution": "node",
-  "esModuleInterop": true,
-},
-"include": ["src","images.d.ts"],
-"exclude": ["node_modules", "**/*.spec.ts", "webpack.*"]
+{
+	"compilerOptions": {
+		"outDir": "public",
+		/* noImplicitAny:- In some cases where no type annotations are present, 
+  TypeScript will fall back to a type of any for a variable 
+   when it cannot infer the type.
+  This can cause some errors to be missed
+  */
+		"noImplicitAny": false,
+		"module": "AMD",
+		"target": "es6",
+		"jsx": "react",
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"moduleResolution": "node",
+		"esModuleInterop": true
+	},
+	"include": ["src", "images.d.ts"],
+	"exclude": ["node_modules", "**/*.spec.ts", "webpack.*"]
 }

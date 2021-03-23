@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const App = () => <h1> START APP USING TS </h1>;
+const App = () => <h1> BOILER PLATE APP USING TS </h1>;
 
 ReactDOM.render(<App />, document.getElementById('app'));
