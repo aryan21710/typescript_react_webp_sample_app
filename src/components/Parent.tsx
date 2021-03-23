@@ -3,6 +3,7 @@ import CSS from 'csstype';
 import { Input } from './Input';
 import { DisplayTodo } from './DisplayTodo';
 import { AppContext } from '../context/appContext';
+import { debounce } from 'lodash';
 
 export const Parent: React.FC = () => {
     const [todos, setToDos] = useState<string[]>([]);
@@ -14,10 +15,10 @@ export const Parent: React.FC = () => {
 
     const onSearchHandler = (event:React.ChangeEvent<HTMLInputElement>)=>setSearch(event.target.value.trim());
 
-    const searchTodo = ()=>{
+    const searchTodo = debounce(()=>{
         const filteredTodos = todos.filter((todo)=>todo.includes(search));
         filteredTodos.length > 0 &&  setToDos([...filteredTodos]);
-    };
+    }, 1000);
 
     const resetTodo = ()=>setToDos([...copyTodos]);
 
@@ -35,6 +36,14 @@ export const Parent: React.FC = () => {
         isTodoAdd && updateToDo();
     }, [isTodoAdd]);
 
+    const onDeleteHandler = (idx: number)=>()=>{
+        const filteredTodos = todos.filter((todo, index)=>index !== idx);
+        if (filteredTodos.length > 0)  {
+            setToDos([...filteredTodos]);
+            setCopyOfTodos([...filteredTodos]);
+        }
+    };
+
 
     useEffect(()=>{
         search.length > 0 ? searchTodo() : resetTodo();
@@ -42,7 +51,7 @@ export const Parent: React.FC = () => {
     return (
         <div style={mainWrapper}>
             <h1>TYPESCRIPT TODO APP</h1>
-            <AppContext.Provider value={{ setToDos, setItem, todos, item, onChangeHandler, onClickHandler, onSearchHandler }}>
+            <AppContext.Provider value={{ setToDos, setItem, todos, item, onChangeHandler, onClickHandler, onSearchHandler, onDeleteHandler }}>
                 <Input />
                 <DisplayTodo />
             </AppContext.Provider>
