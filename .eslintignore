@@ -3,3 +3,6 @@ webpack.config.js
 .babelrc
 *.md
 package*
+main*
+bundle*
+*.js

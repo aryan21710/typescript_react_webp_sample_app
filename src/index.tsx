@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Parent } from './components/Parent';
+import  './index.css';
 
-const App = () => <h1> BOILER PLATE APP USING TS </h1>;
-
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Parent />, document.getElementById('app'));
