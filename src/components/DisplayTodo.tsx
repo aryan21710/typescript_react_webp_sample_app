@@ -1,8 +1,10 @@
+/* eslint-disable no-console */
 import React, { useContext } from 'react';
 import CSS from 'csstype';
 import { AppContext } from '../context/appContext';
 
-export const DisplayTodo: React.FC = () => {
+export const DisplayTodo: React.FC = React.memo(() => {
+    console.count('DisplayTodo');
     const {  todos, onSearchHandler, search, onDeleteHandler } = useContext(AppContext);
     return  (
         <div style={mainWrapper}>
@@ -16,7 +18,7 @@ export const DisplayTodo: React.FC = () => {
             </ul>
         </div>
     );
-};
+});
 
 const mainWrapper: CSS.Properties = {
     width: '50vw',
