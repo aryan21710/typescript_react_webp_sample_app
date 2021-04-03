@@ -29,7 +29,7 @@
 	},
 	"scripts": {
 		"start": "webpack serve",
-		"build:dev": "webpack --watch",
+		"build": "webpack --watch",
 		"test": "cypress run --browser chrome",
 		"lint": "eslint . --fix && echo 'Lint Complete.'",
 		"check-types": "tsc -p ./tsconfig.json"

@@ -51,7 +51,7 @@ export const Parent: React.FC = () => {
     return (
         <div style={mainWrapper}>
             <h1>TYPESCRIPT TODO APP</h1>
-            <AppContext.Provider value={{ setToDos, setItem, todos, item, onChangeHandler, onClickHandler, onSearchHandler, onDeleteHandler }}>
+            <AppContext.Provider value={{ search, todos, item, onChangeHandler, onClickHandler, onSearchHandler, onDeleteHandler }}>
                 <Input />
                 <DisplayTodo />
             </AppContext.Provider>
@@ -64,7 +64,7 @@ const mainWrapper: CSS.Properties = {
     height: '100vh',
     display: 'flex',
     flexDirection: 'column',
-    background: 'grey',
+    background: 'pink',
     alignItems: 'center',
     margin: 0,
     padding: 0,
